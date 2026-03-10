@@ -1,0 +1,30 @@
+function findUniqueChars(str, options = {}) {
+  const { ignoreSpaces = true, caseInsensitive = true } = options;
+  const s = caseInsensitive ? str.toLowerCase() : str;
+  const filtered = ignoreSpaces ? s.replace(/\s+/g, '') : s;
+
+  const counts = new Map();
+  for (const ch of filtered) {
+    counts.set(ch, (counts.get(ch) || 0) + 1);
+  }
+    console.log(counts)
+
+  const uniques = [];
+  for (const [ch, cnt] of counts.entries()) {
+    if (cnt === 1) uniques.push(ch);
+  }
+  return uniques;
+}
+
+// Example usage:
+let input = "Hello devdeep welcome to class";
+console.log(findUniqueChars(input)); 
+// default: ignore spaces, case-insensitive
+
+// If you want to keep spaces and case-sensitive:
+console.log(findUniqueChars(input, { ignoreSpaces: false, caseInsensitive: false }));
+
+
+
+
+

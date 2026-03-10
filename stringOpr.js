@@ -23,7 +23,7 @@ function convertTouppercase(str){
         {
             result+=str[index]
         }
-        else{
+        else{f
             str[index]!=" "? result += String.fromCharCode(str.charCodeAt(index) - 32) : result += str[index]
         }  
     }
